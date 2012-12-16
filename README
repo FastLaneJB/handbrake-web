@@ -1,0 +1,25 @@
+handbrake-web v0.1
+------------------
+By James Bland
+
+This is a simple web page which will monitor a Handbrake encode so you can see what's it doing. It's really basic currently but I might improve it somewhat as time goes on.
+It's mostly useful when you've scripted your Handbrake so seeing the progress isn't always so easy.
+
+There's zero error checking currently. Sloppy I know but I just knocked it up quickly. It's also not really efficent but again I might improve it.
+
+Installation
+------------
+
+You need a web server which is running PHP with the PHP-GD module enabled. Just copy all the files from this into a directory of your webserver.
+
+Then edit config.php so it points to the files which you need to be created during a Handbrake encode which I will mention in the next section.
+If Handbrake is running off a different machine you'll need a network share which the webserver can read the Handbrake output from.
+
+Handbrake
+---------
+
+You need to pipe the HandBrake output to 2 seperate files which this will read. So add this onto the end of your HandBrake-CLI line...
+
+2> /storage/progress/encode_info > /storage/progress/encode_progress
+
+Change the path as you need and make sure it matches in the config.php
