@@ -17,6 +17,10 @@
         <td>{$video_duration}</td>
       </tr>
       <tr>
+        <td>Encode Start Time</td>
+        <td>{$start_time}</td>
+      </tr>
+      <tr>
         <td>Encode Progress</td>
         <td><img src="lib/progressbar.php?max=100&val={$progress_percentage}" /> {$progress_percentage}%</td>
       </tr>

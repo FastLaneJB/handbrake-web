@@ -19,6 +19,7 @@ else {
 	$smarty->assign('progress_percentage', encode_progress($progress_file));
 	$smarty->assign('progress_avg_fps', encode_fps($progress_file));
 	$smarty->assign('progress_eta', encode_eta($progress_file));
+	$smarty->assign('start_time', start_time($info_file));
 	$smarty->assign('handbrake_version', handbrake_version($info_file));
 
 	$smarty->display('index.tpl');

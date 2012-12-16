@@ -23,6 +23,15 @@ function encode_eta ($file) {
         return substr_replace($words[$index + 1],"",-2);
 }
 
+function start_time ($file) {
+	$line = readFirstLine($file);
+
+	$words = explode(" ", $line);
+	$start_time = substr_replace($words[0],0,-1);
+	$start_time = substr($start_time,1,-1);
+	return ($start_time);
+}
+
 function handbrake_version ($file) {
 	$matches = searchForLine ($file, "HandBrake");
 	$line = serialize($matches[0]);
@@ -48,6 +57,12 @@ function video_duration ($file) {
         $index = array_search("Duration:", $words);
 
         return substr_replace($words[$index + 1],"",-1);
+}
+
+function readFirstLine ($file) {
+	$lines = file($file);
+
+	return $lines[0];
 }
 
 function readLastLine ($file) {
