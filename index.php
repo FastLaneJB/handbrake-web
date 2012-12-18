@@ -19,11 +19,13 @@ else {
 	$smarty->assign('handbrake_version', handbrake_version($info_file));
 
 	$progress_eta=encode_eta($progress_file);
-	if ($progress_eta = "00h00m00s") {
+	$progress_percentage=encode_progress($progress_file);
+
+	if (($progress_eta == "00h00m00s") || ($progress_percentage == "100")) {
 		$smarty->display('encode_finished.tpl');
 	} else {
-		$smarty->assign('progress_percentage', encode_progress($progress_file));
 		$smarty->assign('progress_avg_fps', encode_fps($progress_file));
+		$smarty->assign('progress_percentage', $progress_percentage);
 		$smarty->assign('progress_eta', $progress_eta);
 		$smarty->assign('start_time', start_time($info_file));
 

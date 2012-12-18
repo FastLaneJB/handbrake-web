@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Handbrake {$progress_percentage}%</title>
+    <title>Handbrake</title>
     <meta http-equiv="refresh" content="15">
   </head>
   <body>
