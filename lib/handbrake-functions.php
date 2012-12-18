@@ -3,8 +3,13 @@ function encode_progress ($file) {
 	$line = readLastLine($file);
 
 	$words = explode(" ", $line);
-	$index = array_search("%", $words);
-	return $words[$index - 1];
+
+	if ($words[0] != "Muxing:") {
+		$index = array_search("%", $words);
+		return $words[$index - 1];
+	} else {
+		return "100";
+	}
 }
 
 function encode_fps ($file) {
@@ -44,10 +49,12 @@ function handbrake_version ($file) {
 function video_name ($file) {
         $matches = searchForLine ($file, "Opening");
         $line = serialize($matches[0]);
-        $words = explode(" ", $line);
-        $index = array_search("Opening", $words);
 
-        return substr_replace($words[$index + 1],"",-6);
+	$words = explode(" ", $line);
+	$line = substr_replace($line, "", -6); 
+	$line = substr($line, strlen($words[0]));
+
+	return $line;
 }
 
 function video_duration ($file) {
