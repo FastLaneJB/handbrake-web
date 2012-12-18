@@ -7,6 +7,7 @@
     <center><img src="images/handbrake-logo.png" /></center><br>
     <center><h1>HandBrake {$handbrake_version} Encode</h1></center>
     <br><br>
+    <center>
     <table border="1">
       <tr>
         <td>Source Name</td>
@@ -33,6 +34,7 @@
         <td>{$progress_eta}</td>
       </tr>
     </table>
+    </center>
     <br>
   </body>
 </html>
